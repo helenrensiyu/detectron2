@@ -114,6 +114,13 @@ class DensePoseResultsMplContourVisualizer(DensePoseResultsVisualizer):
             bbox_xywh[1] + bbox_xywh[3],
         )
         plt.contour(u, self.levels, extent=extent, **self.plot_args)
+        #fig = context["fig"]
+        #w, h = map(int, fig.get_size_inches() * fig.get_dpi())
+        maxU = np.amax(u)
+        result = np.where(u == maxU)
+        listOfCordinates = list(zip(result[0], result[1]))
+        for cord in listOfCordinates:
+            plt.plot(cord[0],cord[1], marker='o', linestyle='none', color='red')
         #plt.contour(v, self.levels, extent=extent, **self.plot_args)
         #numberOfDataPoints = 10
         #xCoordinates = np.linspace(bbox_xywh[0], bbox_xywh[0] + bbox_xywh[2], numberOfDataPoints)
