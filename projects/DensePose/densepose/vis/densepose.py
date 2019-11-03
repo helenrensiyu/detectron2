@@ -69,7 +69,7 @@ def _extract_v_from_iuvarr(iuv_arr):
 
 
 class DensePoseResultsMplContourVisualizer(DensePoseResultsVisualizer):
-    def __init__(self, levels=10, **kwargs):
+    def __init__(self, levels=30, **kwargs):
         self.levels = levels
         self.plot_args = kwargs
 
