@@ -114,15 +114,15 @@ class DensePoseResultsMplContourVisualizer(DensePoseResultsVisualizer):
             bbox_xywh[1] + bbox_xywh[3],
         )
         plt.contour(u, self.levels, extent=extent, **self.plot_args)
-        plt.contour(v, self.levels, extent=extent, **self.plot_args)
+        #plt.contour(v, self.levels, extent=extent, **self.plot_args)
         #numberOfDataPoints = 10
         #xCoordinates = np.linspace(bbox_xywh[0], bbox_xywh[0] + bbox_xywh[2], numberOfDataPoints)
         #yCoordinates = np.linspace(bbox_xywh[1], bbox_xywh[1] + bbox_xywh[3], numberOfDataPoints)
         #plot the top-left point
-        plt.plot(bbox_xywh[0],bbox_xywh[1], marker='o', linestyle='none', color='red')
-        plt.plot(bbox_xywh[0],bbox_xywh[1] + bbox_xywh[3], marker='o', linestyle='none', color='blue')
-        plt.plot(bbox_xywh[0] + bbox_xywh[2], bbox_xywh[1], marker='o', linestyle='none', color='green')
-        plt.plot(bbox_xywh[0] + bbox_xywh[2], bbox_xywh[1] + bbox_xywh[3], marker='o', linestyle='none', color='yellow')
+        #plt.plot(bbox_xywh[0],bbox_xywh[1], marker='o', linestyle='none', color='red')
+        #plt.plot(bbox_xywh[0],bbox_xywh[1] + bbox_xywh[3], marker='o', linestyle='none', color='blue')
+        #plt.plot(bbox_xywh[0] + bbox_xywh[2], bbox_xywh[1], marker='o', linestyle='none', color='green')
+        #plt.plot(bbox_xywh[0] + bbox_xywh[2], bbox_xywh[1] + bbox_xywh[3], marker='o', linestyle='none', color='yellow')
 
 
 class DensePoseResultsCustomContourVisualizer(DensePoseResultsVisualizer):
