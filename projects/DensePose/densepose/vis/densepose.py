@@ -113,8 +113,10 @@ class DensePoseResultsMplContourVisualizer(DensePoseResultsVisualizer):
             bbox_xywh[1],
             bbox_xywh[1] + bbox_xywh[3],
         )
-        plt.contour(u, self.levels, extent=extent, **self.plot_args)
-        plt.contour(v, self.levels, extent=extent, **self.plot_args)
+        #plt.contour(u, self.levels, extent=extent, **self.plot_args)
+        #plt.contour(v, self.levels, extent=extent, **self.plot_args)
+        plt.plot(u, marker='x', linestyle='none')
+        plt.plot(v, marker='x', linestyle='none')
 
 
 class DensePoseResultsCustomContourVisualizer(DensePoseResultsVisualizer):
