@@ -114,18 +114,23 @@ class DensePoseResultsMplContourVisualizer(DensePoseResultsVisualizer):
             bbox_xywh[1] + bbox_xywh[3],
         )
         plt.contour(u, self.levels, extent=extent, **self.plot_args)
+        uSizeX = u.shape[0]
+        uSizeY = u.shape[1]
+        
         #fig = context["fig"]
         #w, h = map(int, fig.get_size_inches() * fig.get_dpi())
         boxXOrigin = bbox_xywh[0]
         boxXHeight = bbox_xywh[0] + bbox_xywh[2]
         boxYOrigin = bbox_xywh[1]
         boxYHeight = bbox_xywh[1] + bbox_xywh[3]
-        cropU = u[boxXOrigin:boxXHeight,boxYOrigin:boxYHeight]
-        maxU = np.amax(cropU)
-        result = np.where(cropU == maxU)
+
+        uXCoord = np.linspace(boxXOrigin, boxXHeight, uSizeX, endpoint=True)
+        uYCoord = np.linspace(boxYOrigin, boxYHeight, uSizeY, endpoint=True)
+
+        result = np.where(u == np.amax(u))
         listOfCordinates = list(zip(result[0], result[1]))
         for cord in listOfCordinates:
-            plt.plot(cord[0],cord[1], marker='o', linestyle='none', color='red')
+            plt.plot(uXCoord[cord[0]],uYCoord[cord[1]], marker='o', linestyle='none', color='red')
         #plt.contour(v, self.levels, extent=extent, **self.plot_args)
         #numberOfDataPoints = 10
         #xCoordinates = np.linspace(bbox_xywh[0], bbox_xywh[0] + bbox_xywh[2], numberOfDataPoints)
